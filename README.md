@@ -1,13 +1,9 @@
 # 3-Anno-1-Semestre
-### ciao a tutti
-ciao ciao ciao **ciaooo**
 
-> [!tip] CIao
-> ammazzati
-> 
+# Titolone
+## Sottotitolo
 
+### Titolino
 
+**Bold** *italic* ***both*** normal
 
-
-
-`

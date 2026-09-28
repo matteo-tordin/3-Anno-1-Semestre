@@ -1,7 +1,4 @@
 
-## Lezione 1
-
-
 > [!info] Dato
 > Un **dato** è la **rappresentazione di un evento** attraverso una **sequenza di simboli**.
 
@@ -25,4 +22,3 @@ Nella maggior parte delle basi di dati che considereremo in questo corso si user
 Per rappresentarlo si usa il **rettangolo** per l'**entità** e il **rombo** per l'**associazione**.
 Qualsiasi cosa non possa essere rappresentata tramite entità o associazioni può essere scritta a parole tramite regole di vincolo.
 
----

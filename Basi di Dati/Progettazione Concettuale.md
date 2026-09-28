@@ -6,15 +6,15 @@
 > Un **dato** è la **rappresentazione di un evento** attraverso una **sequenza di simboli**.
 
 Deve essere
-* Non interpretato
-* Salvato su un supporto
+* **Non interpretato**
+* **Salvato su un supporto**
 
 Consideriamo come esempio il seguente caso (prezzo di alcune azioni):
 
 | max    | min    | id    | hh  | mm  | ss  |
 | ------ | ------ | ----- | --- | --- | --- |
 | 219.05 | 218.15 | 05023 | 11  | 52  | 17  |
-
+Questi non sono più semplici dati, in quanto sono stati interpretati specificando il significato di ogni valore. 
 
 > [!info] Informazione
 > L'**informazione** è un **insieme di dati** sottoposto ad un processo di **interpretazione**.

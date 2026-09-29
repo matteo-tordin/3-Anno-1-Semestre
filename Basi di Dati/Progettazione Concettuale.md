@@ -1,13 +1,12 @@
 
 ## Lezione 1
 
-
 > [!info] Dato
 > Un **dato** è la **rappresentazione di un evento** attraverso una **sequenza di simboli**.
 
 Deve essere
-* Non interpretato
-* Salvato su un supporto
+* **Non interpretato**
+* **Salvato su un supporto**
 
 Consideriamo come esempio il seguente caso (prezzo di alcune azioni):
 
@@ -26,3 +25,5 @@ Per rappresentarlo si usa il **rettangolo** per l'**entità** e il **rombo** per
 Qualsiasi cosa non possa essere rappresentata tramite entità o associazioni può essere scritta a parole tramite regole di vincolo.
 
 ---
+## Lezione 2
+

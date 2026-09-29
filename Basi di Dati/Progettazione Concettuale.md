@@ -51,7 +51,7 @@ Da cui si evince che
 Si inizia dall'**analisi dei requisiti**.
 Dallo schema ER si passa allo **schema logico** in cui si definiscono le varie **tabelle** collegate tra loro.
 Lo schema rimane per lo più invariato. Si possono aggiungere attributi allo schema ER (colonne nella tabella) o associazioni (collegamenti tra tabelle) a seconda delle necessità della base di dati.
-Dallo schema logico si passa infine all'**implementazione SQL**.. 
+Dallo schema logico si passa infine all'**implementazione SQL**.
 
 Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'implementazione SQL va corretto in tutti i **livelli precedenti**. Risulta molto più conveniente prestare grande attenzione alla progettazione concettuale prima di procedere. 
 

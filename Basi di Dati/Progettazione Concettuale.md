@@ -33,3 +33,5 @@ Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'i
 
 > [!info] Base di Dati
 > Una **base di dati** è un **insieme di dati coerenti** e con un preciso significato che rappresenta un **qualche aspetto del mondo** reale.
+
+madonnaccia puttana

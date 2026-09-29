@@ -38,6 +38,7 @@ Notiamo che gli attributi possono avere diverse caratteristiche:
 * **Attributi composti**: Un attributo formato da altri attributi. Nella rappresentazione logica si scomporrà in una serie di attributi semplici.
 
 Prendiamo ora un caso con attributi e associazioni:
+
 ![[Studente-Insegnamento ER.svg]]
 
 Da cui si evince che

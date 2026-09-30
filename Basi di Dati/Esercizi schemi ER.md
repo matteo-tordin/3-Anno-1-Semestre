@@ -16,3 +16,9 @@ Uno studente può superare più insegnamenti.
 Per ogni esame superato bisogna registrare data, voto, eventuale lode.
 
 ![[Esami.svg]]
+
+## 3- Libri, autori, editori
+
+Per ogni libro isbn, titolo, anno, pagine.
+Per ogni autore codice, nome, cognome, data di nascita.
+Per ogni editore codice, nome, città.

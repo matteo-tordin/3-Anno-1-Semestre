@@ -31,7 +31,7 @@ Consideriamo la seguente rappresentazione di un'entità "Utente":
 ![[Utente ER.svg]]
 
 Notiamo che gli attributi possono avere diverse caratteristiche:
-* **Attirbuto identificatore**: Uno o più attributi che definiscono univocamente un'entità. Si indicano scurendo il pallino che li identifica.
+* **Attirbuto identificatore**: Uno o più attributi che definiscono univocamente un'entità. Un attributo identificativo deve avere un solo valore. Si indica scurendo il pallino che lo identifica.
 * **Vincoli numerici**: Si possono fornire vincoli sul numero di valori per ogni attributo. 
 	(0,1) indica che il valore può essere unico o non esserci affatto.
 	(1,n) indica che deve esserci almeno un valore.
@@ -43,8 +43,8 @@ Prendiamo ora un caso con attributi e associazioni:
 
 Da cui si evince che
 * Alcuni **attributi identificatori** funzionano solo se **combinati** (il solo nome del corso potrebbe non essere univoco, così come il corso di laurea, ma insieme definiscono univocamente un insegnamento).
-* Le **associazioni possono avere attributi**. Il voto con cui uno studente supera l'esame di un insegnamento non è un attributo né dello studente né dell'insegnamento, ma del legame che c'è tra i due.
-* Le associazioni accettano **vincoli numerici in entrambi i sensi**: uno studente può seguire anche 0 corsi, ma un corso necessita di almeno uno studente che lo segua per essere inserito nella base di dati.
+* Le **associazioni possono avere attributi** (ma NON identificatori). Il voto con cui uno studente supera l'esame di un insegnamento non è un attributo né dello studente né dell'insegnamento, ma del legame che c'è tra i due.
+* Le associazioni hanno **vincoli numerici in entrambi i sensi**: uno studente può seguire anche 0 corsi, ma un corso necessita di almeno uno studente che lo segua per essere inserito nella base di dati (**condizione di esistenza**).
 
 ## Progettazione di una base di dati
 

@@ -23,7 +23,7 @@ Questi non sono più semplici dati, in quanto sono stati interpretati specifican
 Nella maggior parte delle basi di dati che considereremo in questo corso si userà il **modello** 
 **Entity-Relationship** (ER) / UML
 Per rappresentarlo si usa il **rettangolo** per l'**entità** e il **rombo** per l'**associazione**.
-Gli **attributi** di un'entità si rappresentano con **pallini** vuoti collrgati al rettangolo (pieni se sono identificatori univoci)
+Gli **attributi** di un'entità si rappresentano con **pallini** vuoti collegati al rettangolo (pieni se sono identificatori univoci)
 Qualsiasi cosa non possa essere rappresentata tramite entità o associazioni può essere scritta a parole tramite regole di vincolo.
 
 Consideriamo la seguente rappresentazione di un'entità "Utente":
@@ -42,9 +42,9 @@ Prendiamo ora un caso con attributi e associazioni:
 ![[Studente-Insegnamento ER.svg]]
 
 Da cui si evince che
-* Alcuni **attributi identificatori** funzionano solo se **combinati** (il solo nome del corso potrebbe non essere univoco, così come il corso di laurea).
+* Alcuni **attributi identificatori** funzionano solo se **combinati** (il solo nome del corso potrebbe non essere univoco, così come il corso di laurea, ma insieme definiscono univocamente un insegnamento).
 * Le **associazioni possono avere attributi**. Il voto con cui uno studente supera l'esame di un insegnamento non è un attributo né dello studente né dell'insegnamento, ma del legame che c'è tra i due.
-* Le associazioni accettano vincoli numerici in entrambi i sensi: uno studente può seguire da 0 a n corsi, ma un corso necessita di almeno uno studente che lo segua per essere inserito nella base di dati.
+* Le associazioni accettano **vincoli numerici in entrambi i sensi**: uno studente può seguire anche 0 corsi, ma un corso necessita di almeno uno studente che lo segua per essere inserito nella base di dati.
 
 ## Progettazione di una base di dati
 
@@ -53,5 +53,4 @@ Dallo schema ER si passa allo **schema logico** in cui si definiscono le varie *
 Lo schema rimane per lo più invariato. Si possono aggiungere attributi allo schema ER (colonne nella tabella) o associazioni (collegamenti tra tabelle) a seconda delle necessità della base di dati.
 Dallo schema logico si passa infine all'**implementazione SQL**.
 
-Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'implementazione SQL va corretto in tutti i **livelli precedenti**. Risulta molto più conveniente prestare grande attenzione alla progettazione concettuale prima di procedere. 
-
+Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'implementazione SQL va corretto in tutti i **livelli precedenti**. Risulta molto più conveniente prestare grande attenzione alla progettazione concettuale prima di procedere.

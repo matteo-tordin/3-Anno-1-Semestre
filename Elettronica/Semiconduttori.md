@@ -1,4 +1,4 @@
-
+monit
 [[2a.Semiconduttori.pdf |Slide di riferimento]]
 
 I **semiconduttori** sono materiali caratterizzati da una **resistività** tra i 10^-3 e i 10^5 $\ohm \cdot cm$.

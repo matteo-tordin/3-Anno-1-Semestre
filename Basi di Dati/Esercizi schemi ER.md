@@ -1,4 +1,4 @@
-[[Esercizi schemi ER]][[Esercizi schemi ER]]
+
 ## 1 - Studenti e corsi di laurea
 
 Per ogni stutende nome, cognome, matricola, data di nascita.

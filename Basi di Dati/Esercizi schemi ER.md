@@ -1,4 +1,4 @@
-
+[[Esercizi schemi ER]][[Esercizi schemi ER]]
 ## 1 - Studenti e corsi di laurea
 
 Per ogni stutende nome, cognome, matricola, data di nascita.
@@ -39,3 +39,9 @@ NOTA: Nel caso di un campo come la città, in cui il testo è limitato ad una qu
 * Vincolare i valori tramite un'enumerazione.
 * Promuovere l'attributo città ad una nuova entità.
 Si rischia altrimenti di avere valori differenti per la stessa città (ad esempio "Padova" e "padova").
+
+## 4 - Dipendenti azienda
+
+NOTA: Se volessi indicare un minimo di valori da inserire maggiore di 1 ma arbitrario, si può indicare con la dicitura "(n,m)" (il dipartimento esiste se sono presenti alcuni dipendenti, ma non uno).
+
+![[Dipendenti azienda.svg]]

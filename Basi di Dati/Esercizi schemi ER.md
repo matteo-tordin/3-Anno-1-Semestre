@@ -45,3 +45,16 @@ Si rischia altrimenti di avere valori differenti per la stessa città (ad esempi
 NOTA: Se volessi indicare un minimo di valori da inserire maggiore di 1 ma arbitrario, si può indicare con la dicitura "(n,m)" (il dipartimento esiste se sono presenti alcuni dipendenti, ma non uno).
 
 ![[Dipendenti azienda.svg]]
+
+Essendo l'impegno un valore percentuale, non deve superare il 100%. Per risolvere questo problema posso
+* Sommare le percentuali di impegno di un dipendente prima di inserire un dato, eventualmente impedendolo.
+* *boh l'ho perso*
+
+## Medici e pazienti
+
+
+![[Medici e pazienti.svg]]
+
+Si potrebbe promuovere la specializzazione ad entità per evitare i problemi già analizzati riguardanti i campi di testo (alternativamente si può usare l'enumerazione).
+
+Sarebbe possibile realizzare una relazione tra 3 entità siccome una visita ha sempre un medico e un paziente assegnati ad essa. Il risultato finale sarebbe lo stesso. 

@@ -28,3 +28,14 @@ E' importante sottolineare che gli **insiemi non prevedono ripetizioni** dei pro
 Per ogni libro isbn, titolo, anno, pagine.
 Per ogni autore codice, nome, cognome, data di nascita.
 Per ogni editore codice, nome, città.
+Ogni autore può scrivere più libri ed essere aggiunto alla base di dati anche senza che ci siano libri associati ad esso.
+Ogni libro deve essere scritto da almeno un autore.
+Ogni editore può pubblicare più libri ed essere aggiunto alla base di dati anche senza che ci siano libri associati ad esso.
+Ogni libro deve essere pubblicato da un solo editore.
+
+![[Libri.svg]]
+
+NOTA: Nel caso di un campo come la città, in cui il testo è limitato ad una quantità finita di valori, le possibili opzioni sono
+* Vincolare i valori tramite un'enumerazione.
+* Promuovere l'attributo città ad una nuova entità.
+Si rischia altrimenti di avere valori differenti per la stessa città (ad esempio "Padova" e "padova").

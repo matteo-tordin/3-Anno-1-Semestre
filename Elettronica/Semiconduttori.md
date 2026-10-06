@@ -80,3 +80,29 @@ $$J_{drift}=q(n\mu_{n}+p\mu_{p})E$$
 
 Dalla corrente di deriva possiamo calcolare la **resistività** del semiconduttore:
 $$\rho=\frac{E}{J_{drift}}=\frac{1}{q(\mu_{n}n+\mu_{p}p)}$$
+
+Si usano **gradienti di concentrazione** diversi nei dispositivi elettronici.
+Variano le concentrazioni e i tipi di droganti.
+I portatori si diffondono da zone di bassa concentrazione a zone di alta concentrazione.
+Si genera un **flusso** proporzionale al gradiente stesso 
+$$\phi(x) = -D\frac{dC}{dx}(x)$$
+In cui C(x) è la **concentrazione** per unità di volume e D è una **costante di diffusione**.
+
+In un semiconduttore ci saranno un flusso per gli elettroni $\phi_{n}$ e un flusso per le lacune $\phi_{p}$.
+
+FORMULE CORRENTE DA INSERIRE
+
+La corrente di elettroni ha senso concorde al gradiente di concentrazione.
+La corrente di lacune ha senso opposto al gradiente di concentrazione.
+
+FORMULE CORRENTE DA INSERIRE
+
+Le costanti di diffusione per elettroni e lacune sono legate dalla **relazione di einstein**.
+$$\frac{D_{n}}{\mu_{n}}=\frac{D_{P}}{\mu_{p}}=\frac{kT}{q}=V_{T}$$
+In cui $V_{T}$ è detto **potenziale termico**.
+
+In un semiconduttore in equilibrio la **corrente totale** di elettroni e lacune è **nulla**.
+La corrente di diffusione e deriva sono quindi opposte tra loro.
+
+SISTEMARE
+

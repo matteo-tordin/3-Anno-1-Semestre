@@ -55,10 +55,24 @@ Dallo schema logico si passa infine all'**implementazione SQL**.
 
 Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'implementazione SQL va corretto in tutti i **livelli precedenti**. Risulta molto più conveniente prestare grande attenzione alla progettazione concettuale prima di procedere.
 
-## Relazioni ternarie
+## Relazioni n-arie
 
-Consideriamo il seguente caso in cui esiste una relazione ternaria.
+Consideriamo il seguente caso in cui esiste una relazione ternaria (molto rare relazioni di ordine superiore).
 L'indicazione numerica indica il **rapporto con le altre due entità** (ad esempio quante coppie fornitura - dipartimento sono da associare ad ogni prodotto).
 
 ![[Relazione ternaria.svg]]
-DA AGGIUNGERE ENTITA' DEBOLE
+
+## Entità deboli
+
+> [!info] Entità debole
+> Si definisce **entità debole** un'entità che **necessita una relazione** con una seconda entità **per essere identificata**.
+
+Consideriamo il seguente caso:
+
+![[Teatro entità debole.svg]]
+
+Conoscendo la fila e il numero di un posto, non si capisce a quale teatro appartenga.
+Ma sarebbe insensato aggiungere un attributo teatro, in quanto esiste come entità a parte.
+Ciò che identifica quindi il posto è la sua **relazione con l'entità forte** teatro.
+
+NOTA: La **partecipazione dell'entità debole alla relazione con la sua entità forte** di riferimento è **sempre di tipo (1,1)**. Questo in quanto tale relazione fa parte dell'identificatore (che deve essere sempre univoco).

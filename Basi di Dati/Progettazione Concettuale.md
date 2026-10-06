@@ -61,3 +61,4 @@ Consideriamo il seguente caso in cui esiste una relazione ternaria.
 L'indicazione numerica indica il **rapporto con le altre due entità** (ad esempio quante coppie fornitura - dipartimento sono da associare ad ogni prodotto).
 
 ![[Relazione ternaria.svg]]
+DA AGGIUNGERE ENTITA' DEBOLE

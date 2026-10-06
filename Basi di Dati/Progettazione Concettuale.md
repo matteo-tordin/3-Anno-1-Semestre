@@ -54,3 +54,10 @@ Lo schema rimane per lo più invariato. Si possono aggiungere attributi allo sch
 Dallo schema logico si passa infine all'**implementazione SQL**.
 
 Questo è uno schema di sviluppo **a cascata**. Un **errore** nella parte dell'implementazione SQL va corretto in tutti i **livelli precedenti**. Risulta molto più conveniente prestare grande attenzione alla progettazione concettuale prima di procedere.
+
+## Relazioni ternarie
+
+Consideriamo il seguente caso in cui esiste una relazione ternaria.
+L'indicazione numerica indica il **rapporto con le altre due entità** (ad esempio quante coppie fornitura - dipartimento sono da associare ad ogni prodotto).
+
+![[Relazione ternaria.svg]]

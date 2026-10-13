@@ -1,0 +1,64 @@
+[[Lecture 4 - Models of Parallel Processing.pdf|Slide di riferimento]]
+## Race condition
+
+Esistono situazioni (generalmente asincrone) che necessitano di più task che gestiscano le varie funzioni.
+
+Tali task (thread) necessitano di un modo di comunicare. Si potrebbe pensare che la **memoria condivisa** sia sufficiente per risolvere questo problema.
+In realtà, questa non garantisce la **consistenza**. Diversi task potrebbero star lavorando nella stessa area della memoria comune.
+Questa sitauzione di definisce **race condition**.
+
+*Vedi esempio alla [[Lecture 4 - Models of Parallel Processing.pdf#page=3|slide 3]].*
+
+E' necessario individuare alcune **sezioni critiche** (ovvero indivisibili) per i task.
+Tali sezioni devono essere eseguite in modo continuo e **garantendo la mutua esclusione**.
+
+#### Lock
+L'implementazione più naive consiste nel **lock**.
+* All'entrata della sezione critica, il task prende possesso del lock.
+* All'uscita, lo restituisce.
+* Un task che vuole prendere un lock occupato è costretto ad aspettare.
+
+#### Istruzioni atomiche
+I processori moderni prevedono anche l'esistenza di **istruzioni atomiche**, che non possono essere fisicamente interrotte.
+Questo può essere utile per implementare lock tramite l'istruzione **test_and_set**.
+
+*Vedi esempio alla [[Lecture 4 - Models of Parallel Processing.pdf#page=7|slide 7]].*
+
+#### Algoritmo di Peterson
+Una soluzione che garantisca non solo la mutua esclusione, ma anche la fairness è l'**algoritmo di Peterson**.
+
+Questo è il codice per 2 task (dunque pid = 0 oppure 1):
+```
+//Global Variables
+int flag[2] = {0, 0};
+int turn=0;
+
+//Enter critical section 
+void entry(int pid) { 
+	int other = 1-pid; 
+	flag[pid] = 1; 
+	turn = pid;
+	 while(flag[other] == 1 && turn == pid); 
+}
+
+//Exit critical section 
+void exit(int pid) { 
+	flag[pid] = 0; 
+}
+```
+
+*La versione per N task è visibile alla [[Lecture 4 - Models of Parallel Processing.pdf#page=9|slide 9]].*
+
+Tutte le soluzioni viste fino ad ora hanno il problema del **busy waiting**: si sprecano cicli di processore per l'attesa (**polling**).
+Il polling può anche causare **deadlock** in sistemi a priorità fissa.
+
+E' necessaria una soluzione che implementi l'**attesa passiva (passive waiting)**.
+
+#### Semafori
+I semafori sono particolari oggetti del sistema operativo composti da due elementi
+* Un **numero intero** non negativo.
+* Una **coda di processi** in passive waiting sul semaforo.
+
+Si eseguono sul semaforo due **operazioni**:
+* **P(sem)**: Controlla il valore dell'intero. Se è maggiore di zero, lo decrementa di uno (in modo atomico). Altrimenti, mette il processo nella coda d'attesa e lo fa entrare in stato waiting, bloccandone l'esecuzione.
+* **V(sem)**: Controlla la coda dei processi in coda. Se è vuota, aumenta di uno l'intero (in modo atomico). Altrimenti, sceglie uno dei processi in coda e lo rende disponibile all'esecuzione facendolo entrare in stato ready.

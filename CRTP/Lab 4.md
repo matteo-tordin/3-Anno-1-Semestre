@@ -45,8 +45,51 @@ Si descrive il codice mediante operazioni sui registri, in maniera simile all'as
 ## Ottimizzazione
 
 Possiamo comunicare al compilatore di ottimizzare il codice con alcune flag
-* -O0: ottimizzazione per il tempo di compilazione (standard).
-* -O1: ottimizzazione per il tempo di esecuzione.
-* -O2: come O1 ma migliore (aumenta tempo di compilazione)
-* -O3: come O2 ma migliore (aumenta tempo di compilazione)
+* -**O0**: ottimizzazione per il tempo di compilazione (standard).
+* -**O1**: ottimizzazione per il tempo di esecuzione.
+* -**O2**: come O1 ma migliore (aumenta tempo di compilazione)
+* -**O3**: come O2 ma migliore (aumenta tempo di compilazione)
+
+## Inlining
+
+Tramite la keyword "inline" si suggerisce al compilatore di sostituire ogni chiamata ad una funzione con le operazioni in essa contenute, **senza eseguire un context switch** ad ogni chiamata.
+* Si risparmia l'overhead di una chiamata a funzione
+* Si risparmia l'overhead del context switch
+* Si risparmia l'overhead del ritorno dalla funzione
+* Il compilatore può eseguire ottimizzazioni sul codice che non potrebbe eseguire con la chiamata a funzione.
+
+L'inlining **non si può eseguire** se 
+* La funzione contiene loop
+* La funzione contiene variabili statiche
+* La funzione è ricorsiva
+* La funzione ha un tipo di ritorno che non è void
+* La funzione contiene istruzioni switch o goto
+
+*E' possibile definire la funzione come inline, ma il compilatore ignorerà la direttiva.*
+
+## Constant folding
+
+Se una variabile non cambia mai valore durante l'esecuzione, può essere sostituita da un valore costante nel codice macchina, risparmiando tempo.
+
+## Dead code elimination
+
+Se vengono eseguiti calcoli a vuoto (ad esempio calcoliamo un valore senza mai usarlo), la riga di codice viene eliminata dal compilatore.
+
+## Branch elimination
+
+Se una istruzione condizionale non ha senso di esistere, viene sostituita da una istruzione senza branch.
+
+## Partial evaluation
+
+Il compilatore può eseguire alcune funzioni e calcolarne direttamente il valore prima di passare al codice macchina.
+
+## Late scheduling
+
+Se un calcolo viene eseguito sempre ma il risultato viene usato solamente in un branch, allora il compilatore può riordinare le istruzioni in modo che l'intero calcolo venga eseguito solo in quel branch.
+
+## Risultato finale
+
+Applicando tutte le tecniche di ottimizzazione viste sopra, si ottiene questo codice
+
+![[Pasted image 20261026153527.png]]
 

@@ -42,3 +42,11 @@ Si descrive il codice mediante operazioni sui registri, in maniera simile all'as
 
 *Vedi esempio sulla funzione di Ackermann.*
 
+## Ottimizzazione
+
+Possiamo comunicare al compilatore di ottimizzare il codice con alcune flag
+* -O0: ottimizzazione per il tempo di compilazione (standard).
+* -O1: ottimizzazione per il tempo di esecuzione.
+* -O2: come O1 ma migliore (aumenta tempo di compilazione)
+* -O3: come O2 ma migliore (aumenta tempo di compilazione)
+

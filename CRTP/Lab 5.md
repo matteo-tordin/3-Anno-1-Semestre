@@ -73,7 +73,7 @@ Le uniche **differenze tra padre e figlio** consistono in
 * *Memory locks*
 
 La memoria del processo padre non viene immediatamente copiata dal figlio.
-La page table del figlio punterà ancora alle pagine del padre, che verranno marcate come **Copy On Write (COW)**.
+La page table del figlio punterà ancora alle pagine del padre, che verranno marcate come **Copy on Write (CoW)**.
 
 
 ## Memoria condivisa tra fork

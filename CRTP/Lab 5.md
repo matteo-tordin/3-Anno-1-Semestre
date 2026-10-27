@@ -99,3 +99,8 @@ Ogni thread possiede un program counter (che viene inizializzato al momento dell
 
 La gestione dei thread in Linux avviene tramite la libreria **pthread**.
 
+Aumentare il numero di thread aumenta le prestazioni del sistema, ma fino ad un certo punto. 
+Sopra ad un determinato valore. l'overhead del context switch ricomincia a peggiorarle.
+
+![[Pasted image 20261027134939.png|298]]
+

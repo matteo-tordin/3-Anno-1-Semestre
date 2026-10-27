@@ -48,3 +48,25 @@ Ogni riga di `/proc/<PID>/maps` corrisponde ad un segmento contiguo di memoria. 
 * Pathname (percorso del file)
 
 
+## PCB in Linux
+
+Nel kernel Linux, i processi sono salvati in una lista doppiamente concatenata di **task_struct**.
+Il primo elemento di tale lista è **init_task**, con PID = 0.
+
+Quando una chiamata **fork()** ritorna, i due processi sono identici, e nello stesso punto della loro esecuzione.
+L'unica differenza sta nel **valore di ritorno**
+* Se viene ritornato **0**, ci troviamo nel **processo figlio**.
+* Se il valore di ritorno è il **PID del nuovo processo**, ci troviamo nel **processo padre**.
+
+E' possibile **attendere la terminazione del processo figlio** tramite l'istruzione 
+`pid_t wait(pid_t pid, int *status, int options) `
+
+Le uniche **differenze tra padre e figlio** consistono in
+* PID
+* Utilizzazione delle risorse (i valori sono azzerati per il figlio)
+* Segnali in attesa (azzerati)
+* Semafori
+* Timer
+* Operazioni di I/O asincrono
+* Memory locks
+

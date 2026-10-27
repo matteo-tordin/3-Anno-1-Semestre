@@ -88,3 +88,14 @@ La **chiave** di tipo **key_t** è necessaria in Unix per richiedere risorse.
 Può essere generata tramite la funzione **ftok()**, che richiede un path e un intero e genera una chiave basandosi su questi valori. La chiave generata sarà uguale per ogni chiamata con gli stessi argomenti.
 Altrimenti, tramite **IPC_PRIVATE**, si genera una chiave univoca ogni volta, garantendo che nessun altro processo possa avere la stessa chiave.
 
+
+## Threads
+
+Sono sostanzialmente affini ai processi nel senso che rappresentano flussi indipendenti di esecuzione.
+La differenza risiede nel fatto che i thread condividano l'area di memoria del processo di cui fanno parte, oltre agli stessi file e devices.
+Sono pertanto detti **processi leggeri (lightweight processes)**.
+
+Ogni thread possiede un program counter (che viene inizializzato al momento della sua esecuzione all'indirizzo dove risiedono le sue istruzioni) e un proprio stack pointer.
+
+La gestione dei thread in Linux avviene tramite la libreria **pthread**.
+

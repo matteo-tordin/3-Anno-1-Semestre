@@ -36,3 +36,13 @@ La memoria assegnata ad un processo si divide in
 * **Data:** Contiene le variabili statiche e globali. Si divide di solito in **data** per le variabili inizializzate e **bss** per quelle non inizializzate.
 * **Heap:** Contiene le strutture allocate dinamicamente (con malloc() in c o con l'operatore new in c++).
 
+E' possibile osservare le regioni di memoria utilizzate da un processo (in Linux, tramtite il comando `cat maps` chiamato dalla cartella del processo `/proc/<PID>` ).
+Ogni riga di `/proc/<PID>/maps` corrisponde ad un segmento contiguo di memoria. Contiene
+* Indirizzo del segmento
+* Permessi
+* Offset (solo se si tratta di un file con mmap(), altrimenti vale 0)
+* Device (major e minor number del device dove vive il file)
+* Inode (numero dei file)
+* Pathname (percorso del file)
+
+

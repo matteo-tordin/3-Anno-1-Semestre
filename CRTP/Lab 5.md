@@ -14,6 +14,8 @@ Vengono salvati:
 * La page table relativa al processo
 * Le strutture dati del sistema operativo per la gestione del processo.
 
+Le informazioni salvate in un context switch sono salvate in un **Process Control Block (PCB)**, che risiede **nella memoria del kernel**.
+
 I processi sono organizzati per **priorità**. Un processo ad alta priorità verra scelto dallo scheduler prima di altri.
 
 I principali algoritmi di scheduling sono

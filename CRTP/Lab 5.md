@@ -53,6 +53,8 @@ Ogni riga di `/proc/<PID>/maps` corrisponde ad un segmento contiguo di memoria. 
 Nel kernel Linux, i processi sono salvati in una lista doppiamente concatenata di **task_struct**.
 Il primo elemento di tale lista è **init_task**, con PID = 0.
 
+## Fork in Linux
+
 Quando una chiamata **fork()** ritorna, i due processi sono identici, e nello stesso punto della loro esecuzione.
 L'unica differenza sta nel **valore di ritorno**
 * Se viene ritornato **0**, ci troviamo nel **processo figlio**.
@@ -64,9 +66,25 @@ E' possibile **attendere la terminazione del processo figlio** tramite l'istruzi
 Le uniche **differenze tra padre e figlio** consistono in
 * PID
 * Utilizzazione delle risorse (i valori sono azzerati per il figlio)
-* Segnali in attesa (azzerati)
-* Semafori
-* Timer
-* Operazioni di I/O asincrono
-* Memory locks
+* *Segnali*
+* *Semafori*
+* *Timer*
+* *Operazioni di I/O asincrono*
+* *Memory locks*
+
+La memoria del processo padre non viene immediatamente copiata dal figlio.
+La page table del figlio punterà ancora alle pagine del padre, che verranno marcate come **Copy On Write (COW)**.
+
+
+## Memoria condivisa tra fork
+
+Possiamo sfruttare la **memoria virtuale** per **condividere memoria tra padre e figlio**.
+`int shmget(key_t key, size_t size, int shmflg)`
+* Key è una chiave
+* Size è la dimensione desiderata della regione di memoria condivisa.
+* Smhflg sono i flag relativi al modo in cui tale memoria verrà utilizzata.
+
+La **chiave** di tipo **key_t** è necessaria in Unix per richiedere risorse.
+Può essere generata tramite la funzione **ftok()**, che richiede un path e un intero e genera una chiave basandosi su questi valori. La chiave generata sarà uguale per ogni chiamata con gli stessi argomenti.
+Altrimenti, tramite **IPC_PRIVATE**, si genera una chiave univoca ogni volta, garantendo che nessun altro processo possa avere la stessa chiave.
 

@@ -53,5 +53,11 @@ Si devono usare oggetti atomici per gestire la memoria condivisa.
 
 #### Problema 5: Two producers - lost update, overwrite
 
-L'indice ha ora due processi che lo aggiornano 
+L'indice ha ora due processi che lo aggiornano. Anche se le operazioni fossero atomiche, il primo potrebbe sospendersi dopo aver controllato che lo slot sia libero, ma prima di aggiornare la memoria. Questo darebbe la possibilità al secondo di scrivere un valore che poi verrà sovrascritto.
+
+La soluzione è racchiudere l'intera procedura di controllo/scrittura/aggiornamento indice in una sezione critica.
+
+#### Problema 6: Two consumers - shared counter
+
+
 

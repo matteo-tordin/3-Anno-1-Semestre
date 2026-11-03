@@ -42,5 +42,7 @@ La soluzione è usare operazioni atomiche e la semantica di memoria
 
 *Vedi slide 9*
 
+DA FINIRE
+
 
 

@@ -65,4 +65,31 @@ Potrebbero leggere entrambi lo stesso dato, poi aumentare due volte il contatore
 La soluzione è avere un'aumento atomico del contatore.
 
 
+## Soluzioni
+
+### 1 - Semafori
+
+Già approfonditi in [[2. Parallel processing]].
+
+### 2 - Message queues
+
+Si sfrutta il kernel per la sincronizzazione dei messaggi.
+Tali messaggi sono inviati tramite alcune chiamate a sistema POSIX.
+
+*Vedi slide 20.*
+
+### 3 - Monitor pattern
+
+Si basa su due principi:
+* **Mutex lock:** Il sistema operativo mette in attesa qualunque processo provi a bloccare un mutex già bloccato. Ne sblocca uno appena avviene un unlock.
+* **Variabili condizionali:** I thread possono mettersi in attesa di una variabile.
+
+Quando un thread si mette in attesa su una variabile, sblocca anche il mutex.
+Il processo verrà svegliato da un signal sulla variabile.
+Il controllo sulla conduzione va effettuato in un while (si rischia altrimenti attesa eterna - lost wakeup).
+
+
+![[Pasted image 20261103153656.png]]
+
+
 

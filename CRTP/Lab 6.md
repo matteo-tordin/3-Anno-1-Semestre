@@ -1,7 +1,39 @@
 [[lab6 - parallel processing.pdf|Slide di riferimento]]
 
-Alcune definizioni
+Consideriamo il classico problema SPSC (Single Producer Single Consumer).
 
-Una **race condition** è dipendente dal **timing delle operazioni**.
+## SPSC sleep-wakeup cicle
 
-Una **data race** avviene quando **più processi scrivono** in una stessa locazione di memoria **senza mutua esclusione**.
+Consideriamo un esempio con sleep e wakeup per sincronizzare i due.
+
+#### Problema 1: lost wakeup (race condition)
+Se i processi effettuano un context switch nel momento sbagliato, può verificarsi il problema del **lost wakeup**, che provoca un deadlock.
+
+*Vedi esempio alla [[lab6 - parallel processing.pdf#page=5|slide 5]].*
+
+
+## SPSC circular buffer
+
+Usiamo ora un buffer circolare per regolare la comunicazione tra producer e consumer.
+
+Definiamo:
+* **Race condition:** dipende dal **timing delle operazioni**.
+* **Data race:** dipende dall'accesso in **scrittura senza mutua esclusione** alla stessa area di memoria.
+
+#### Problema 2: Publish before write (race condition)
+Se il produttore aggiorna l'indice e poi aggiorna le memoria, può accadere che il consumatore legga la memoria prima che essa sia aggiornata.
+
+La soluzione è eseguire le operazioni in questo ordine:
+In scrittura
+1) scrivere il dato
+2) aggiornare l'indice
+
+Mentre in lettura
+1) leggere il dato
+2) rilasciare lo slot
+
+*Vedi esempio alla slide 8.*
+
+
+
+

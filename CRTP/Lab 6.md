@@ -43,7 +43,13 @@ La soluzione è usare operazioni atomiche e la semantica di memoria
 
 *Vedi slide 9*
 
-DA FINIRE
 
+#### Problema 4: Torn index update
 
+Si verifica quando le operazioni di aggiornamento di un indice più lungo di una word viene spezzato in più operazioni in memoria.
+Il consumatore potrebbe leggere nel momento sbagliato, ottenendo un valore errato.
+
+Si devono usare oggetti atomici per gestire la memoria condivisa.
+
+#### Problema 5: Two producers
 

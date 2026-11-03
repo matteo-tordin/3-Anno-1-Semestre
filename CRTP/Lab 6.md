@@ -59,5 +59,5 @@ La soluzione è racchiudere l'intera procedura di controllo/scrittura/aggiorname
 
 #### Problema 6: Two consumers - shared counter
 
-
+Lo 
 

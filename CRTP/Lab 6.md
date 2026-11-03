@@ -59,5 +59,10 @@ La soluzione è racchiudere l'intera procedura di controllo/scrittura/aggiorname
 
 #### Problema 6: Two consumers - shared counter
 
-Lo 
+Lo stesso indice è gestito da due consumatori.
+Potrebbero leggere entrambi lo stesso dato, poi aumentare due volte il contatore saltando il dato successivo.
+
+La soluzione è avere un'aumento atomico del contatore.
+
+
 

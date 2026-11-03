@@ -34,6 +34,13 @@ Mentre in lettura
 
 *Vedi esempio alla slide 8.*
 
+#### Problema 3: Reordering and caching (data race)
+
+Le operazioni possono essere riordinate, oppure il processore può caricare un indice nei registri senza sapere che sta venendo modificato. Questo porta ad errori nell'esecuzione nonostante sua rispettato l'ordine delle istruzioni nel codice sorgente.
+
+La soluzione è usare operazioni atomiche e la semantica di memoria
+
+*Vedi slide 9*
 
 
 

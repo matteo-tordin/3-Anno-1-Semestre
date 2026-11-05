@@ -69,7 +69,7 @@ La soluzione è avere un'aumento atomico del contatore.
 
 ### 1 - Semafori
 
-Già approfonditi in [[2. Parallel processing]].
+Già approfonditi in [[2. Parallel processing#Semafori|Parallel processing - Semafori]].
 
 ### 2 - Message queues
 

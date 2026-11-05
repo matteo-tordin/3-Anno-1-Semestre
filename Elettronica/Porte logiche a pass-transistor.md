@@ -18,3 +18,34 @@ IMMAGINE
 
 ## Caratteristiche statiche
 
+Consideriamo la caratteristica di trasferimento di una porta **AND** realizzata tramite **pass-T NMOS**:
+
+![[Pasted image 20261105150055.png|476]]
+
+Nemmeno realizzandola tramite **pass-T PMOS** la situazione cambierebbe:
+
+![[Pasted image 20261105150159.png|489]]
+
+
+Questo è dato dal fatto che
+* Un **NMOS** è **efficiente** solo nel trasmettere il **valore logico basso**.
+* Un **PMOS** è **efficiente** solo nel trasmettere il **valore logico alto**.
+
+Generalmente, **si preferisce** sempre l'uso di **NMOS** rispetto ai PMOS perché sono **più rapidi**.
+
+## Connessioni in cascata di pass-T
+
+DA SISTEMARE
+
+Dunque, il **valore di uscita** di una porta **pass-T** **può pilotare** solamente il **source/drain** di una seconda porta, ma **non il gate**.
+
+Se collegassimo una porta pass-T ad un invertitore CMOS, la tensione trasmessa dalla prima non sarà perfetto, ma sarà ad esempio $V_{DD}-V_{T}$ nel caso di un valore alto trasmesso da un pass-T NMOS.
+Questo non è un problema dal punto di vista logico, in quanto l'inverititore rispetta la probabilità di rigenerazione del segnale, attenuando l'errore.
+Il problema è che in questo modo il PMOS non è spento. Questo genera un consumo statico.
+
+
+## Ottimizzazione dei valori logici
+
+### Level restorer
+
+DA SISTEMARE 

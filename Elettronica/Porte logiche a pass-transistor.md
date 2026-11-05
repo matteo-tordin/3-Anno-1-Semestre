@@ -49,3 +49,14 @@ Il problema è che in questo modo il PMOS non è spento. Questo genera un consum
 ### Level restorer
 
 DA SISTEMARE 
+
+### Transmission gate (TG)
+
+Mettiamo un NMOS e un PMOS in parallelo, pilotati da un segnale A.
+* Se A è basso, sono entrambi spenti. L'interruttore è aperto.
+* Se A è alto, sono entrambi accesi. L'interruttore è chiuso.
+
+In questo modo, qualsiasi sia l'ingresso riusciamo a trasmetterlo perfettamente all'uscita.
+* Se l'ingresso è basso, entrambi i MOS inziano a scaricare l'uscita. Quando il PMOS si spegne, l'NMOS continua a scaricare da solo.
+* Se l'ingresso è alto, entrambi i MOS iniziano a caricare l'uscita. Quando l'NMOS si spegne, il PMOS continua a caricare da solo.
+

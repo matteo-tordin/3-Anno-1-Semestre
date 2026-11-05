@@ -60,3 +60,41 @@ In questo modo, qualsiasi sia l'ingresso riusciamo a trasmetterlo perfettamente 
 * Se l'ingresso è basso, entrambi i MOS inziano a scaricare l'uscita. Quando il PMOS si spegne, l'NMOS continua a scaricare da solo.
 * Se l'ingresso è alto, entrambi i MOS iniziano a caricare l'uscita. Quando l'NMOS si spegne, il PMOS continua a caricare da solo.
 
+
+## Tempo di propagazione
+
+DA SISTEMARE
+Il tempo di propagazione di una porta pass-T dipende dalla somma di tutte le capacità di uscita, oltre alla capacità di carico.
+Si ha dunque
+FORMULA
+In cui $C_{F}=C_{OUT}+c_{L}$.
+
+Il **collegamento in cascata** peggiora notevolmente rispetto alla logica statica complementare.
+Infatti, in quel caso l'impedenza è infinita, dunque non passa corrente.
+
+Nel caso del pass-T, la corrente passa. Una connessione in cascata diventa una **rete di Elmore**
+DA SISTEMARE
+
+
+## Ottimizzazione delle prestazioni
+
+Se tutte le resistenze e le capacità sono uguali, usando la formula di Elmore troviamo $$t_{p}=0,69\cdot RC\cdot \frac{{N(N+1)}}{2}$$
+E dunque **dipende quadraticamente da N**.
+
+Per ottimizzare, la soluzione è dividere gli N MOS in serie in K gruppi da M elementi, intervallati da un buffer CMOS.
+
+Ora, ogni gruppo ha un tempo di propagazione dato dalla somma del tempo degli M MOS e del buffer: $$t_{pass-T}=0,69\cdot RC\cdot \frac{{M(M+1)}}{2} + t_{BUF}$$
+Da cui, il tempo totale di propagazione diventa
+FORMULA
+
+Ottimizzando tramite la derivata si calcola il numero M ideale:
+FORMULA
+
+Generalmente, si trova un M che si aggira tra 4 e 5.
+
+
+## Consumo dinamico delle porte logiche
+
+DA SISTEMARE
+
+

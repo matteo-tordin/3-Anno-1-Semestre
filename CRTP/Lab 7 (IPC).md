@@ -38,7 +38,6 @@ Nel caso di dati condivisi tramite Ethernet, il frame del livello 2 contiene i d
 * **CRC** (Cyclic Redundancy Check) che individua eventuali errori di comunicazione. Viene calcolato dal trasmettitore e poi ricalcolato dal ricevitore e confrontato.
 * **Gap tra frame** (la distanza minima da rispettare tra due frame consecutivi).
 
-Attualmente la comunicazione Ethernet ha superato tecnologie LAN come Token Ring, FDDI, ARCNET.
+Attualmente la comunicazione Ethernet ha superato tecnologie cablate LAN come Token Ring, FDDI (usato per la fibra ottica), ARCNET.
 L'alternativa wireless ad Ethernet è il WiFi.
-
 

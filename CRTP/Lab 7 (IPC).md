@@ -46,3 +46,50 @@ E' quindi possibile cambiare il cavo di comunicazione senza cambiare il layer MA
 
 #### Network
 
+E' il **terzo livello**.
+Si tratta del livello di **trasporto**.
+Nel nostro caso, consideriamo il **protocollo internet IP** e il **protocollo di trasmissione TCP**.
+Insieme compongono il **protocollo TCP/IP**.
+
+![[Pasted image 20261110133215.png|463]]
+
+
+Il protocollo **IP** definisce le funzionalità necessarie per la trasmissione di pacchetti attraverso uno o più reti.
+
+*Per vedere i contenuti del layer IP vedi [[lab7 - sockets.pdf#page=14|slide 14]].*
+
+Il protocollo **TCP** garantisce la **correttezza** e la **consegna in ordine** di un flusso di dati.
+DA SISTEMARE
+
+Per garantire la consegna dei pacchetti, si esegue una **3-way handshake**: 
+1) Il client invia una richiesta di connessione, accendendo il bit SYN.
+2) Il server accetta la richiesta, accendendo SYN e ACK.
+3) Il client risponde con ACK per comunicare al server di aver ricevuto il suo segnale.
+A questo punto la connessione è operativa.
+
+All'interno del pacchetto sono definiti anche tutti i frame dei livelli inferiori.
+
+![[Pasted image 20261110133944.png|383]]
+
+
+## Socket
+
+I socket sono strutture dati del sistema operativo che fungono da endpoint di una rete di comunicazione.
+
+I socket sono degli **pseudo file** che rappresentano una connessione ad una rete.
+Una volta creato il socket, le **scritture** su tale file sono trasformate in pacchetti e inviate nella rete, mentre è possibile reperire i pacchetti ricevuti tramite **letture** al file.
+
+Esistono diversi tipi di socket:
+DA SISTEMARE
+* **Stream socket**: utilizzati per il protocollo TCP DA SISTEMARE
+* **Datagram socket**
+* **Raw socket**
+
+
+### Codice per creare e usare socket
+
+La richiesta di creazione di un socket vviene tramite l'operazione
+DA SISTEMARE
+IMMAGINE
+
+DA FINIRE

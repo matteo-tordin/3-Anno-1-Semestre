@@ -34,7 +34,11 @@ Nel caso di dati condivisi tramite Ethernet, il frame del livello 2 contiene i d
 * Il **MAC di sorgente** è l'indirizzo del trasmettitore del frame.
 * La **lunghezza del pacchetto** contiene le informazioni sulla dimensione del segmento di dati.
 * **LLC**.
-* **Dati** del pacchetto.
+* **Dati** del pacchetto (massimo 1500 byte).
 * **CRC** (Cyclic Redundancy Check) che individua eventuali errori di comunicazione. Viene calcolato dal trasmettitore e poi ricalcolato dal ricevitore e confrontato.
 * **Gap tra frame** (la distanza minima da rispettare tra due frame consecutivi).
+
+Attualmente la comunicazione Ethernet ha superato tecnologie LAN come Token Ring, FDDI, ARCNET.
+L'alternativa wireless ad Ethernet è il WiFi.
+
 

@@ -41,3 +41,6 @@ Nel caso di dati condivisi tramite Ethernet, il frame del livello 2 contiene i d
 Attualmente la comunicazione Ethernet ha superato tecnologie cablate LAN come Token Ring, FDDI (usato per la fibra ottica), ARCNET.
 L'alternativa wireless ad Ethernet è il WiFi.
 
+I layer MAC e quello fisico (PHY) sono resi tra loro indipendenti da alcune **interfacce di collegamento**, che usano un protocollo standardizzato per qualsiasi cosa si connetta ad esse.
+E' quindi possibile cambiare il cavo di comunicazione senza cambiare il layer MAC, ma solamente quello PHY.
+

@@ -99,5 +99,22 @@ La richiesta di **creazione** di un socket avviene tramite l'operazione
 
 Il protocollo può essere lasciato a 0 e verrà determinato automaticamente a seconda del tipo.
 
-Dopo la creazione si esegue il **bind** del socket
+Dopo la creazione si esegue il **bind** del socket con
+`int bind(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`
 
+* **sockfd** è il file descriptor di un socket creato
+* **addr** è l'indirizzo (eventualmente contenente una porta) del socket
+* **addrlen** è la lunghezza della struct addr.
+
+Si procede con **listen** e **accept**
+`int listen(int sockfd, int backlog);`
+`int accept(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict addrlen);`
+
+che permette al server di accettare e rispondere alle richieste di connessione.
+
+Da parte del client, l'operazione richiesta è **connect**:
+`int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen);`
+
+che permette al client di connettersi al server, iniziando la 3-way handshake.
+
+*Vedi slide finali per esempi di codice.*

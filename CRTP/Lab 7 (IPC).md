@@ -100,3 +100,4 @@ La richiesta di **creazione** di un socket avviene tramite l'operazione
 Il protocollo può essere lasciato a 0 e verrà determinato automaticamente a seconda del tipo.
 
 Dopo la creazione si esegue il **bind** del socket
+

@@ -44,3 +44,5 @@ L'alternativa wireless ad Ethernet è il WiFi.
 I layer MAC e quello fisico (PHY) sono resi tra loro indipendenti da alcune **interfacce di collegamento**, che usano un protocollo standardizzato per qualsiasi cosa si connetta ad esse.
 E' quindi possibile cambiare il cavo di comunicazione senza cambiare il layer MAC, ma solamente quello PHY.
 
+#### Network
+

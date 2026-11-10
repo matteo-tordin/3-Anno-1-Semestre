@@ -10,7 +10,8 @@ Si noti che, utilizzando un sistema distribuito, si aggiunge latenza nel trasfer
 ## Modello OSI
 
 Si suddivide la comunicazione in 7 livelli, i primi 3 dei quali sono i **media layers**, mentre gli ultimi 4 sono **host layers**.
-IMMAGINE
+
+![[Pasted image 20261110154116.png|461]]
 
 ### Phisical layer
 
@@ -59,37 +60,43 @@ Il protocollo **IP** definisce le funzionalità necessarie per la trasmissione d
 *Per vedere i contenuti del layer IP vedi [[lab7 - sockets.pdf#page=14|slide 14]].*
 
 Il protocollo **TCP** garantisce la **correttezza** e la **consegna in ordine** di un flusso di dati.
-DA SISTEMARE
+
+*Per vedere i contenuti del layer RCP vedi [[lab7 - sockets.pdf#page=16|slide 16]].*
+
 
 Per garantire la consegna dei pacchetti, si esegue una **3-way handshake**: 
-1) Il client invia una richiesta di connessione, accendendo il bit SYN.
-2) Il server accetta la richiesta, accendendo SYN e ACK.
-3) Il client risponde con ACK per comunicare al server di aver ricevuto il suo segnale.
+1) Il client invia una richiesta di connessione, accendendo il bit **SYN**.
+2) Il server accetta la richiesta, accendendo **SYN** e **ACK**.
+3) Il client risponde con **ACK** per comunicare al server di aver ricevuto il suo segnale.
 A questo punto la connessione è operativa.
 
 All'interno del pacchetto sono definiti anche tutti i frame dei livelli inferiori.
+Il **TCP/IP stack** contiene le informazioni del livello TCP, sopra a quelle del livello IP, a loro volta sopra quelle del livello Ethernet.
 
 ![[Pasted image 20261110133944.png|383]]
 
 
 ## Socket
 
-I socket sono strutture dati del sistema operativo che fungono da endpoint di una rete di comunicazione.
+I socket sono **strutture dati del sistema operativo** che fungono da **endpoint di una rete di comunicazione**.
 
 I socket sono degli **pseudo file** che rappresentano una connessione ad una rete.
 Una volta creato il socket, le **scritture** su tale file sono trasformate in pacchetti e inviate nella rete, mentre è possibile reperire i pacchetti ricevuti tramite **letture** al file.
 
-Esistono diversi tipi di socket:
-DA SISTEMARE
-* **Stream socket**: utilizzati per il protocollo TCP DA SISTEMARE
-* **Datagram socket**
-* **Raw socket**
+Esistono diverse tipologie di socket:
+* **Stream socket**: utilizzati per il protocollo TCP. Permettono la trasmissione assicurata e senza errori di un flusso di dati.
+* **Datagram socket**: utilizzati per il protocoloo UDP. L'ordine di arrivo, così come l'arrivo stesso, non sono garantiti.
+* **Raw socket**: permettono l'invio di pacchetti IP senza nessun layer di trasporto.
 
 
 ### Codice per creare e usare socket
 
-La richiesta di creazione di un socket vviene tramite l'operazione
-DA SISTEMARE
-IMMAGINE
+La richiesta di **creazione** di un socket avviene tramite l'operazione
+`int socket(int domain, int type, int protocol);`
 
-DA FINIRE
+* **domain** specifica il dominio degli indirizzi (ad esempio, AF_INET corrisponde a IPv4, mentre AF_INET6 corrisponde a IPv6).
+* **type** specifica il tipo di socket richiesto (SOCK_STREAM, SOCK_DGRAM, SOCK_RAW).
+
+Il protocollo può essere lasciato a 0 e verrà determinato automaticamente a seconda del tipo.
+
+Dopo la creazione si esegue il **bind** del socket

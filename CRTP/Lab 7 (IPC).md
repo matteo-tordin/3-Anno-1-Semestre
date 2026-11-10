@@ -14,7 +14,27 @@ IMMAGINE
 
 ### Phisical layer
 
-E' il primo dei livelli.
+E' il **primo livello**.
 Definisce le **caratteristiche elettriche** della comunicazione.
 Ad esempio, si definiscono i livelli logici, come è organizzato il canale di comunicazione, etc...
+
+### Data link layer
+
+E' il **secondo livello**.
+Definisce **come l'informazione viene trasferita**. Nel caso della comunicazione via internet si usano
+* **Logical Link Control (LLC)**
+* **Media Access Control (MAC)**
+
+Nel caso di dati condivisi tramite Ethernet, il frame del livello 2 contiene i dati binari e le seguenti informazioni:
+
+![[Pasted image 20261110130834.png]]
+
+* Il **preambolo** serve per sincronizzare ricevitore e trasmettitore e per eliminare qualsiasi bias elettrostatico presente nel canale.
+* Il **MAC di destinazione** è l'indirizzo del ricevitore del frame.
+* Il **MAC di sorgente** è l'indirizzo del trasmettitore del frame.
+* La **lunghezza del pacchetto** contiene le informazioni sulla dimensione del segmento di dati.
+* **LLC**.
+* **Dati** del pacchetto.
+* **CRC** (Cyclic Redundancy Check) che individua eventuali errori di comunicazione. Viene calcolato dal trasmettitore e poi ricalcolato dal ricevitore e confrontato.
+* **Gap tra frame** (la distanza minima da rispettare tra due frame consecutivi).
 

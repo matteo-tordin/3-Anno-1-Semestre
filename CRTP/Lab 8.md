@@ -147,7 +147,16 @@ La chiamata select avvisa il chiamante nel caso di
 * eccezioni nel file descriptor
 
 Richiede alcuni parametri:
+* Il massimo numero di descrittori di file da controllare.
+* Il set di descrittori da controllare per la lettura (readfds)
+* Il set di descrittori da controllare per la scrittura (writefds)
+* Il set di descrittori da controllare per eccezioni (exceptfds)
+* Il puntatore al timeout.
 
+Ritorna
+* -1 se è avvenuto un errore nella chiamata a funzione
+* 0 se il timeout è terminato senza segnali.
+* >0 che corrisponde al numero di segnali ricevuti.
 
 ### Epoll
 

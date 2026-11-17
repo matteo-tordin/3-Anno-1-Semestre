@@ -123,3 +123,13 @@ Il processo **continua a bloccarsi**, ma lo fa per un **tempo massimo definito**
 
 Una volta creato un socket con `O_NONBLOCK`, possiamo usare le funzioni `select()`, `poll()`, `epoll()` per far **attendere il processo fino a che il kernel non nota un cambio nel socket** (nel suo file).
 
+La chiamata select avvisa il chiamante nel caso di
+* nuovi dati da leggere
+* eccezioni nel file descriptor
+
+Richiede alcuni parametri:
+DA SISTEMARE fino a 39
+
+### Epoll
+
+DA FINIRE

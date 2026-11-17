@@ -96,3 +96,7 @@ DA SISTEMARE
 
 ## Nonblocking I/O
 
+Nell'ambito della IPC la **connessione** può essere vista **come una risorsa condivisa** per sincronizzare un canale send-recieve.
+* E' possibile bloccare l'input di un socket se non c'è nessun dato da leggere (**input lock**).
+* E' possibile bloccare l'output di un socket se i dati non possono essere inviati immediatamente (**output lock**)
+

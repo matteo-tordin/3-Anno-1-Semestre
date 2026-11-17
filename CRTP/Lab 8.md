@@ -45,12 +45,54 @@ E' possibile usare una chiamata a `setsockopt()` per impostare alcune funzioni d
 
 Permette ad una **coppia indirizzo/porta** di subire un **bind più volte** nello stesso sistema.
 Ci sono due scenari per questa funzione:
-1) Un server rimane connesso ad un client che non ha invocato close().
+1) Un server rimane connesso ad un client che non ha invocato close(). Il socket rimane aperto. Se si prova a ricreare la connessione, si va in contro ad errore.
 2) Un server crea un processo figlio per gestire una connessione ad un client. Il server termina, mentre il figlio continua a gestire la richiesta.
 
 ### SO_KEEPALIVE (TCP)
 
 Immaginiamo di avere un server con una serie di client connessi.
 Se i **client perdono la connessione momentaneamente** (diciamo per un guasto), riproveranno a **ristabilire la connessione tutti nello stesso momento**.
+Si generano nuove connessioni.
 
-Se il sever
+Il server non si rende conto di aver perso la connessione ai socket (che sono rimasti idle).
+Per un periodo, le **risorse dedicate ai client saranno duplicate** (creerà nuovi socket).
+
+Il flag SO_KEEPALIVE permette di di inviare **messaggi ai socket idle al fine di verificare la connessione**.
+Ci sono 3 casi:
+* Il peer risponde che la connessione è corretta.
+* Il peer risponde che non conosce la connessione (era rimasto l'endpoint del server ma il client ha terminato la connessione). Si termina la connessione.
+* Non viene ricevuta alcuna risposta. In tal caso si riprova, e in caso non si riceva niente si termina la connessione.
+
+## SO_LINGER (TCP)
+
+Si usa per definire **cosa fare alla terminazione della connessione**.
+
+DA SISTEMARE
+
+## SO_OOBINLINE (TCP)
+
+Esistono dei **pacchetti Out-of-Bounds** nel TCP che possono essere spediti appena psosibile, invece di rispettare l'ordinamento.
+Si usa di solito per **segnali urgenti** (allarmi).
+
+Il flag permette di controllare questi pacchetti OOB.
+* Se **attivo**, i dati OOB possono essere ricevuti insieme agli altri dati dello stream.
+* Se **disattivo**, i dati OOB devono essere recuperati tramite chiamate come `recv(MSG_OOB)`.
+
+### SO_ERROR
+
+Permette di recuperare messaggi di errore ed error status di un socket.
+
+DA SISTEMARE
+
+## SO_TYPE
+
+DA SISTEMARE
+
+
+## Flag per send e recieve
+
+DA SISTEMARE
+
+
+## Nonblocking I/O
+

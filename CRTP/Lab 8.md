@@ -63,7 +63,7 @@ Ci sono 3 casi:
 * Il peer risponde che non conosce la connessione (era rimasto l'endpoint del server ma il client ha terminato la connessione). Si termina la connessione.
 * Non viene ricevuta alcuna risposta. In tal caso si riprova, e in caso non si riceva niente si termina la connessione.
 
-## SO_LINGER (TCP)
+### SO_LINGER (TCP)
 
 Si usa per definire **cosa fare alla terminazione della connessione**, nel momento in cui si invoca la chiamata `close(2)`. 
 Nello specifico, si usa per controllare i **dati non inviati**.
@@ -76,7 +76,7 @@ Se **onoff \== 0**, la chiamata close(2) ritorna immediatamente. Tutti i dati no
 Se **onoff != 0**, e **linger > 0**, allora l'applicazione blocca la chiamata close(2) fino all'invio di tutti i dati, oppure fino alla fine del timeout impostato da linger.
 Se **onoff != 0**, e **linger \== 0**, La chiamata close(2) ritorna immediatamente. Tutti i dati non inviati sono scartati e viene inviato un pacchetto RST (reset) al peer, evitando lo stato TCP_TIME_WAIT.
 
-## SO_OOBINLINE (TCP)
+### SO_OOBINLINE (TCP)
 
 Esistono dei **pacchetti Out-of-Bounds** nel TCP che possono essere **spediti appena psosibile**, invece di rispettare l'ordinamento.
 Si usa di solito per **segnali urgenti** (allarmi).
@@ -93,14 +93,17 @@ I suoi impieghi principali sono
 * **Error reporting**: Fornisce un modo per controllare se si sono verificati errori in un socket senza affidarsi a valori di ritorno di funzioni di I/O.
 * **Error clearing**: Dopo aver recuperato lo status dell'errore, esso viene rimosso dallo stato interno del socket.
 
-## SO_TYPE
+### SO_TYPE
 
-DA SISTEMARE
+Si usa per **ottenere il tipo di un socket** tramite la chiamata a `getsockopt()`.
+
+I possibili tipi ritornati sono SOCK_RAW, SOCK_STREAM, SOCK_DGRAM.
 
 
 ## Flag per send e recieve
 
-DA SISTEMARE
+Possiamo usare le funzioni di send e recieve con alcuni flag.
+
 
 
 ## Nonblocking I/O

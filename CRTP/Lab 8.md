@@ -87,9 +87,11 @@ Il flag permette di controllare questi pacchetti OOB.
 
 ### SO_ERROR
 
-Permette di recuperare messaggi di errore ed error status di un socket.
+Permette di recuperare **messaggi di errore ed error status di un socket**.
 
-DA SISTEMARE
+I suoi impieghi principali sono
+* **Error reporting**: Fornisce un modo per controllare se si sono verificati errori in un socket senza affidarsi a valori di ritorno di funzioni di I/O.
+* **Error clearing**: Dopo aver recuperato lo status dell'errore, esso viene rimosso dallo stato interno del socket.
 
 ## SO_TYPE
 

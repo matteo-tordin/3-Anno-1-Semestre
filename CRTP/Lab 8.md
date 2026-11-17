@@ -19,3 +19,5 @@ E' composto da
 * Lunghezza
 * Checksum
 
+NOTA: nonostante non si effettui alcuna connessione (handshake), è comunque possibile eseguire una chiamata `connect()` "fasulla" che imposta semplicemente la destinazione dei pacchetti nel socket.
+

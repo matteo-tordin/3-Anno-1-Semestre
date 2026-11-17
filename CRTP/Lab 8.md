@@ -36,3 +36,21 @@ Una connessione **UDP può ricevere (e rispondere a) datagrammi da molti client*
 
 Inoltre, UDP risulta **più rapido** in quanto non è presente alcun overhead per handshake e verifica dell'ordine dei pacchetti.
 E' particolarmente **utile nei sistemi real time**, in cui il delay indefinito causato dalla perdita di un pacchetto TCP può non essere accettabile.
+
+## Socket Options
+
+E' possibile usare una chiamata a `setsockopt()` per impostare alcune funzioni di un socket.
+
+### SO_REUSEADDR
+
+Permette ad una **coppia indirizzo/porta** di subire un **bind più volte** nello stesso sistema.
+Ci sono due scenari per questa funzione:
+1) Un server rimane connesso ad un client che non ha invocato close().
+2) Un server crea un processo figlio per gestire una connessione ad un client. Il server termina, mentre il figlio continua a gestire la richiesta.
+
+### SO_KEEPALIVE (TCP)
+
+Immaginiamo di avere un server con una serie di client connessi.
+Se i **client perdono la connessione momentaneamente** (diciamo per un guasto), riproveranno a **ristabilire la connessione tutti nello stesso momento**.
+
+Se il sever

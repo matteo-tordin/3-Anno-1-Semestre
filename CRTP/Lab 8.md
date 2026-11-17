@@ -104,7 +104,7 @@ I possibili tipi ritornati sono SOCK_RAW, SOCK_STREAM, SOCK_DGRAM.
 
 Possiamo usare le funzioni di send e recieve con alcuni flag.
 
-
+**MSG_OOB**: Usato per richiedere dati OOB che non sono stati ricevuti nel normale stream di dati.
 
 ## Nonblocking I/O
 

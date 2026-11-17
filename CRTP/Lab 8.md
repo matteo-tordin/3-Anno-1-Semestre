@@ -106,6 +106,13 @@ Possiamo usare le funzioni di send e recieve con alcuni flag.
 
 **MSG_OOB**: Usato per richiedere dati OOB che non sono stati ricevuti nel normale stream di dati.
 
+**MSG_PEEK**: Usato per controllare il contenuto di un messaggio nella coda di recieve senza però rimuoverlo dalla coda (e quindi riceverlo definitivamente).
+
+**MSG_WAITALL**: Richiede che l'operazione si blocchi fino a che il buffer non abbia ricevuto tutti i byte richiesti (specificati da len).
+
+**MSG_DONTWAIT**: Rende l'operazione non bloccante. Se l'operazione dovesse bloccarsi (non ci sono dati da leggere), ritorna invece un errore.
+
+
 ## Nonblocking I/O
 
 Nell'ambito della IPC la **connessione** può essere vista **come una risorsa condivisa** per sincronizzare un canale send-recieve.
@@ -140,7 +147,7 @@ La chiamata select avvisa il chiamante nel caso di
 * eccezioni nel file descriptor
 
 Richiede alcuni parametri:
-DA SISTEMARE fino a 39
+
 
 ### Epoll
 

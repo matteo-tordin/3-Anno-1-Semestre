@@ -156,8 +156,16 @@ Richiede alcuni parametri:
 Ritorna
 * -1 se è avvenuto un errore nella chiamata a funzione
 * 0 se il timeout è terminato senza segnali.
-* >0 che corrisponde al numero di segnali ricevuti.
+* >0 quando corrisponde al numero di segnali ricevuti.
 
 ### Epoll
 
-DA FINIRE
+E' un'**alternativa ottimizzata alla chiamata select**.
+
+Si inizia creando un'istanza di epoll con `epoll_create`.
+
+Si usa `epoll_ctl` per modificare/aggiungere/rimuovere socket dall'istanza di epoll.
+
+Si usa `epoll_wait` per bloccarsi fino alla segnalazione da parte di uno o più file descriptor.
+
+Risulta essere molto più efficace del select in quanto controlla solamente i fd attivi, invece di scorrerli tutti sequenzialmente.

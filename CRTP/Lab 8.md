@@ -100,3 +100,26 @@ Nell'ambito della IPC la **connessione** può essere vista **come una risorsa co
 * E' possibile bloccare l'input di un socket se non c'è nessun dato da leggere (**input lock**).
 * E' possibile bloccare l'output di un socket se i dati non possono essere inviati immediatamente (**output lock**)
 
+Nel **TCP** ci sono molte **più attese**, mentre in UDP ci si ferma solo per aspettare un messaggio dal sender.
+In ogni caso, il **processo si deve interrompere**.
+
+![[Pasted image 20261117133846.png]]
+
+Analizziamo alcune **strategie per ottenere una connessione non bloccante**:
+
+### Polling
+
+Possiamo settare nel file descriptor del socket il flag `O_NONBLOCK`.
+
+Equivalentemente, possiamo settare il flag `MSG_DONTWAIT` nel socket.
+
+### Polling with delay
+
+Possiamo usare le socket options `SO_RCVTIMEO` e `SO_SNDTIMEO` per impostare dei timeout per ricezione e invio di messaggi.
+
+Il processo **continua a bloccarsi**, ma lo fa per un **tempo massimo definito**.
+
+### Select
+
+Una volta creato un socket con `O_NONBLOCK`, possiamo usare le funzioni `select()`, `poll()`, `epoll()` per far **attendere il processo fino a che il kernel non nota un cambio nel socket** (nel suo file).
+

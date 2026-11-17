@@ -65,18 +65,25 @@ Ci sono 3 casi:
 
 ## SO_LINGER (TCP)
 
-Si usa per definire **cosa fare alla terminazione della connessione**.
+Si usa per definire **cosa fare alla terminazione della connessione**, nel momento in cui si invoca la chiamata `close(2)`. 
+Nello specifico, si usa per controllare i **dati non inviati**.
 
-DA SISTEMARE
+Si usa una struttura dati contenente due campi
+* `l_onoff`
+* `l_linger`
+
+Se **onoff \== 0**, la chiamata close(2) ritorna immediatamente. Tutti i dati non inviati verranno trasmessi in background ove possibile, ma senza alcuna garanzia che arrivino.
+Se **onoff != 0**, e **linger > 0**, allora l'applicazione blocca la chiamata close(2) fino all'invio di tutti i dati, oppure fino alla fine del timeout impostato da linger.
+Se **onoff != 0**, e **linger \== 0**, La chiamata close(2) ritorna immediatamente. Tutti i dati non inviati sono scartati e viene inviato un pacchetto RST (reset) al peer, evitando lo stato TCP_TIME_WAIT.
 
 ## SO_OOBINLINE (TCP)
 
-Esistono dei **pacchetti Out-of-Bounds** nel TCP che possono essere spediti appena psosibile, invece di rispettare l'ordinamento.
+Esistono dei **pacchetti Out-of-Bounds** nel TCP che possono essere **spediti appena psosibile**, invece di rispettare l'ordinamento.
 Si usa di solito per **segnali urgenti** (allarmi).
 
 Il flag permette di controllare questi pacchetti OOB.
-* Se **attivo**, i dati OOB possono essere ricevuti insieme agli altri dati dello stream.
-* Se **disattivo**, i dati OOB devono essere recuperati tramite chiamate come `recv(MSG_OOB)`.
+* Se **attivo**, i dati OOB possono essere ricevuti insieme agli altri dati dello stream. Si usa un buffer comune per pacchetti normali e OOB.
+* Se **disattivo**, i dati OOB devono essere recuperati tramite chiamate come `recv(MSG_OOB)`. I pacchetti OOB sono separati dallo stream normale di dati.
 
 ### SO_ERROR
 

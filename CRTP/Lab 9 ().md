@@ -1,2 +1,0 @@
-[[|Slide di riferimento]]
-

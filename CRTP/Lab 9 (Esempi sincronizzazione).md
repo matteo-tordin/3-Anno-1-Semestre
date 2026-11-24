@@ -36,3 +36,4 @@ int pthread_cond_broadcast(pthread_cond_t *cond);
 
 La differenza sta nel fatto che signal sveglia almeno un thread in attesa, mentre broadcast si usa quando ogni thread in attesa deve vedere il cambiamento.
 
+*Vedi esempi di applicazione corretta nelle slide.*
